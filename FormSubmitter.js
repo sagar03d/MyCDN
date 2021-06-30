@@ -22,7 +22,15 @@ var SubmitForm = function(){
                             showConfirmButton: false,
                             timer: 2000
                     });
-                    window.location.reload();
+                    let redirect = arguments[0];
+                    if(redirect)
+                    {
+                        window.location.href=redirect;
+                    }
+                    else
+                    {
+                        window.location.reload();
+                    }
                 }
                 else
                 {
