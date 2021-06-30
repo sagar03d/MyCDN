@@ -46,6 +46,7 @@ var SubmitForm = function(){
 
     var DeleteRecord = function(){
         var action = $(this).data('action');
+            
         swal.fire({   
             title: "Do you really want to delete ?",   
             text: "",   
