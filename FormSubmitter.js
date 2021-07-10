@@ -37,7 +37,14 @@ $('form').each(function(){
                 error       : function(data){
                     var errors = $.parseJSON(data.responseText);
                     $.each(errors.errors, function(index, value) {
-                        $('[name="'+index+'"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                        if($('[name="'+index+'"]').length)
+                        {
+                            $('[name="'+index+'"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                        }
+                        else
+                        {
+                           $('[name="'+index+'[]"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                        }
                     });
                     $(".savebtn").html('Save');
                     $(".savebtn").attr('disabled', false);
