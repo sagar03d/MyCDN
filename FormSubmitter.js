@@ -2,6 +2,7 @@ $('form').each(function(){
        let formid = $(this).closest("form").attr('id');
        let redirect = $(this).closest("form").attr('data-redirect');
        $("form#"+formid).on('submit', function(e){
+            let btnval = $(".savebtn").text();
             $(".savebtn").html('Please Wait...');
             $(".savebtn").attr('disabled', true);
             $('.errormessage').html('');
@@ -30,7 +31,7 @@ $('form').each(function(){
                     else
                     {
                         $.notify(""+response.data+"", {type:"danger"});
-                        $(".savebtn").html('Save');
+                        $(".savebtn").html(btnval);
                         $(".savebtn").attr('disabled', false);
                     }
                 },
@@ -46,7 +47,7 @@ $('form').each(function(){
                            $('[name="'+index+'[]"]').after('<span class="text-danger errormessage">'+value+'</span>');
                         }
                     });
-                    $(".savebtn").html('Save');
+                    $(".savebtn").html(btnval);
                     $(".savebtn").attr('disabled', false);
                 }
     
