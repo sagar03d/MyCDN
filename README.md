@@ -7,3 +7,7 @@ Form Submitter is a jQuery Plugin that helps you submit any form on a page. It a
 </code></pre>
 <p class="has-line-data" data-line-start="11" data-line-end="13">In above line all form parameters are usual but data-redirect helps you redirect after form submit, keep blank if you want to redirect to the same page or you can give url.<br>
 ** That’s it, if you are in laravel , it will makes your life a bit easier.</p>
+<h2>CDN LINK</h2>
+<pre><code>
+    <script src="https://cdn.jsdelivr.net/gh/sagar03d/MyCDN@1.0.4/FormSubmitter.js"></script>
+</code></pre>
