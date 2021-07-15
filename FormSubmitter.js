@@ -1,6 +1,8 @@
 $('form').each(function(){
        let formid = $(this).closest("form").attr('id');
        let redirect = $(this).closest("form").attr('data-redirect');
+       let ignore = $(this).closest("form").data('ignore');
+       if(!ignore){
        $("form#"+formid).on('submit', function(e){
             let btnval = $(".savebtn").text();
             $(".savebtn").html('Please Wait...');
@@ -54,6 +56,7 @@ $('form').each(function(){
          });
             return false;
         });
+       }
     });
     
 var DeleteRecord = function(){
