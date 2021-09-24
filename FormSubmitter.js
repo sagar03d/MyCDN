@@ -28,7 +28,13 @@ $('form').each(function(){
                                 showConfirmButton: false,
                                 timer: 2000
                         });
-                        window.location.href=redirect;
+                        
+                        if(typeof response.redirect !== 'undefined'){
+                            window.location.href=response.redirect;
+                        }
+                        else{
+                            window.location.href=redirect;
+                        }
                     }
                     else
                     {
