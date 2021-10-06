@@ -8,6 +8,10 @@ $('form').each(function(){
             $(".savebtn").html('Please Wait...');
             $(".savebtn").attr('disabled', true);
             $('.errormessage').html('');
+            
+            for ( instance in CKEDITOR.instances )
+                    CKEDITOR.instances[instance].updateElement();
+
             var formData = new FormData(this);
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
