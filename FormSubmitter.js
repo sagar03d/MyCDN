@@ -9,8 +9,11 @@ $('form').each(function(){
             $(".savebtn").attr('disabled', true);
             $('.errormessage').html('');
             
-            for ( instance in CKEDITOR.instances )
+            if( typeof(CKEDITOR) !== "undefined" )
+            {
+                for ( instance in CKEDITOR.instances )
                     CKEDITOR.instances[instance].updateElement();
+            }
 
             var formData = new FormData(this);
             $.ajax({
