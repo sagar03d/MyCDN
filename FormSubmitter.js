@@ -1,10 +1,10 @@
 $('form').each(function(){
        let formid = $(this).closest("form").attr('id');
-       let redirect = $(this).closest("form").attr('data-redirect');
        let ignore = $(this).closest("form").data('ignore');
        if(!ignore){
        $("form#"+formid).on('submit', function(e){
             let btnval = $(".savebtn").text();
+            let redirect = $(this).attr('data-redirect');
             $(".savebtn").html('Please Wait...');
             $(".savebtn").attr('disabled', true);
             $('.errormessage').html('');
