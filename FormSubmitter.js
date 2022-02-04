@@ -1,3 +1,12 @@
+// ======================================
+// Author : Sagar Dolui
+// Email  : sagar03d@gmail.com
+//========================================
+
+var jQueryScript = document.createElement('script');  
+jQueryScript.setAttribute('src','https://cdn.jsdelivr.net/npm/sweetalert2@11');
+document.head.appendChild(jQueryScript);
+
 $('form').each(function(){
     let formid = $(this).closest("form").attr('id');
     let ignore = $(this).closest("form").data('ignore');
@@ -36,19 +45,30 @@ $('form').each(function(){
                              icon: "success",   
                              showCancelButton: false,
                              showConfirmButton: false,
-                             timer: 2000
+                             timer: 1500
                      });
                      
                      if(typeof response.redirect !== 'undefined'){
-                         window.location.href=response.redirect;
+                        setTimeout(() => {
+                            window.location.href=response.redirect;
+                         }, 1000);
                      }
                      else{
-                         window.location.href=redirect;
+                        setTimeout(() => {
+                            window.location.href=redirect;
+                         }, 1000);
                      }
                  }
                  else
                  {
-                     $.notify(""+response.data+"", {type:"danger"});
+                    swal.fire({   
+                        title: "Error",   
+                        text: response.message,   
+                        icon: "error", 
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                      $(".savebtn").html(btnval);
                      $(".savebtn").attr('disabled', false);
                  }
@@ -106,14 +126,23 @@ var DeleteRecord = function(){
                                 icon: "success",   
                                 showCancelButton: false,
                                 showConfirmButton: false,
-                                timer: 1000
+                                timer: 1500
                         });
-                        window.location.href="";
-                        
+
+                        setTimeout(() => {
+                            window.location.reload();
+                         }, 1000);
                     }
                     else
                     {
-                        $.notify(""+response.data+"", {type:"danger"});
+                        swal.fire({   
+                            title: "Error",   
+                            text: response.message,   
+                            icon: "error",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                     }
                 },
                 error       : function(data){
