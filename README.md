@@ -9,6 +9,5 @@ Form Submitter is a jQuery Plugin that helps you submit any form on a page. It a
 ** That’s it, if you are in laravel , it will makes your life a bit easier.</p>
 <h2>CDN LINK</h2>
 <pre><code>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/gh/sagar03d/MyCDN@main/FormSubmitter.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sagar03d/MyCDN@1.1.1/FormSubmitter.js"></script>
 </code></pre>
