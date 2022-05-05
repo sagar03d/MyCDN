@@ -18,7 +18,8 @@ $('form').each(function(){
          $(".savebtn").attr('disabled', true);
          $('.errormessage').html('');
          $('.error').each(function(){
-             $(this).removeClass('error is-invalid');
+             $(this).removeClass('error');
+             $(this).removeClass('is-invalid');
          });
          
          if( typeof(CKEDITOR) !== "undefined" )
