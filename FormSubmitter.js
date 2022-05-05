@@ -76,7 +76,7 @@ $('form').each(function(){
              error       : function(data){
                  var errors = $.parseJSON(data.responseText);
                  $.each(errors.errors, function(index, value) {
-                     $('[name="'+index+'"]').addClass('error');
+                     $('[name="'+index+'"]').addClass('error is-invalid');
                      if($('[name="'+index+'"]').length)
                      {
                          $('[name="'+index+'"]').after('<span class="text-danger errormessage">'+value+'</span>');
@@ -94,8 +94,8 @@ $('form').each(function(){
          return false;
      });
     }
- });
-     
+});
+
 var DeleteRecord = function(){
         var action = $(this).data('action');
             
