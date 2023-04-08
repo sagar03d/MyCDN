@@ -82,14 +82,24 @@ $('form').each(function(){
                     var errors = $.parseJSON(data.responseText);
                     $.each(errors.errors, function(index, value) {
                         $('[name="'+index+'"]').addClass('error is-invalid');
-                        if($('[name="'+index+'"]').length)
+                        
+                        var fieldType = $('[name="'+index+'"]').attr('type');
+                        if(fieldType != 'radio')
                         {
-                            $('[name="'+index+'"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                            if($('[name="'+index+'"]').length)
+                            {
+                                $('[name="'+index+'"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                            }
+                            else
+                            {
+                                $('[name="'+index+'[]"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                            }
                         }
                         else
                         {
-                            $('[name="'+index+'[]"]').after('<span class="text-danger errormessage">'+value+'</span>');
+                            $('.'+index+'_error').after('<span class="text-danger errormessage">'+value+'</span>'); 
                         }
+                        
                     });
                     
                     btnvalobj.text(btnval);
