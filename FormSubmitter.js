@@ -65,6 +65,9 @@ $('form').each(function(){
                     }
                     else
                     {
+                        btnvalobj.text(btnval);
+                        btnvalobj.attr('disabled', false);
+                        
                         swal.fire({   
                             title: "Error",   
                             text: response.message,   
@@ -73,13 +76,14 @@ $('form').each(function(){
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        
-                        btnvalobj.text(btnval);
-                        btnvalobj.attr('disabled', false);
                     }
                 },
                 error       : function(data){
                     var errors = $.parseJSON(data.responseText);
+                    
+                    btnvalobj.text(btnval);
+                    btnvalobj.attr('disabled', false);
+                    
                     $.each(errors.errors, function(index, value) {
                         $('[name="'+index+'"]').addClass('error is-invalid');
                         
@@ -99,11 +103,7 @@ $('form').each(function(){
                         {
                             $('.'+index+'_error').after('<span class="text-danger errormessage">'+value+'</span>'); 
                         }
-                        
                     });
-                    
-                    btnvalobj.text(btnval);
-                    btnvalobj.attr('disabled', false);
                 }
 
         });
