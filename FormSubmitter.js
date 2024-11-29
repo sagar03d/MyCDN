@@ -25,10 +25,10 @@ $('form').each(function(){
                 $(this).removeClass('is-invalid');
             });
             
-            if( typeof(CKEDITOR) !== "undefined" )
+            if( typeof(ClassicEditor) !== "undefined" )
             {
-                for ( instance in CKEDITOR.instances )
-                    CKEDITOR.instances[instance].updateElement();
+                for ( instance in ClassicEditor.instances )
+                    ClassicEditor.instances[instance].updateElement();
             }
 
             var formData = new FormData(this);
